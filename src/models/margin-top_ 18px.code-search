@@ -1,0 +1,8 @@
+# Query: margin-top: 18px
+# Including: ./vue-form
+# ContextLines: 1
+
+Um resultado - Um arquivo
+
+src/assets/css/common.css:
+  465:   margin-top: 18px;

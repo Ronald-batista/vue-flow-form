@@ -25,12 +25,12 @@
       <template v-slot:complete>
         <div class="f-section-wrap">
           <p>
-            <span class="fh2">Thank you. 🙏</span>
+            <span class="fh2">Agradecemos. 🙏</span>
             <span class="f-section-text">
-              Great work, the survey is completed, and our demo is done. You can review your answers or press submit.
+              Que legal, agora conhecemos melhor suas dores e expectativas, entraremos em contato para conversarmos melhor.
             </span>
           </p>
-          <p class="f-description">Note: No data will be saved and/or sent in this demo.</p>
+          <p class="f-description"><b>OBS:</b> Você precisa clicar em <b>confirmar</b> para validar seu formulário.</p>
         </div>
       </template>
 
@@ -46,7 +46,7 @@
           </a>
         </div>
 
-        <p class="text-success" v-if="submitted">Submitted succesfully.</p>
+        <p class="text-success" v-if="submitted">Formulário enviado.</p>
       </template>
     </flow-form>
   </div>
@@ -111,7 +111,7 @@ export default {
           required: true,
           placeholder: 'Digite aqui...'
         }),
-        
+
         new QuestionModel({
           id: 'quantity-of-employees',
           //tagline: 'Where would you like to go? 🤔',
@@ -119,7 +119,7 @@ export default {
           type: QuestionType.Dropdown,
           multiple: false,
           placeholder: 'Selecione',
-          inline: true,
+          inline: false,
           required: true,
           options: [
             new ChoiceOption({
@@ -143,16 +143,32 @@ export default {
         new QuestionModel({
           id: 'field',
           title: 'Qual o seu ramo de atuação?',
-          type: QuestionType.Text,
+          type: QuestionType.Dropdown,
+          multiple: false,
+          placeholder: 'Selecione',
+          inline: false,
           required: true,
-          placeholder: 'Digite aqui...'
+          options: [
+            new ChoiceOption({
+              label: 'Serviços'
+            }),
+            new ChoiceOption({
+              label: 'Produtos',
+            }),
+
+          ],
         }),
-
-
         new QuestionModel({
-          id: 'prazos-definidos',
-          tagline: 'PRAZOS DEFINIDOS.',
-          title: 'Qual o seu nivel de satisfação com os prazos definidos dentro da sua empresa?',
+          id: 'explanation',
+          title: 'Queremos conhecer expectativas e dores que você possui',
+          content: 'As próximas perguntas vão nos mostrar como funcionam seus processos e como a podemos atuar para melhorar as experiências envolvidas.',
+          //description: 'Note: We will take a look at our multiple path feature next.',
+          type: QuestionType.SectionBreak
+        }),
+        new QuestionModel({
+          id: 'prazos',
+          tagline: 'PRAZOS DE ENTREGA.',
+          title: 'Qual o seu nivel de satisfação?',
           helpTextShow: false,
           type: QuestionType.MultipleChoice,
           multiple: false,
@@ -160,19 +176,372 @@ export default {
           required: true,
           options: [
             new ChoiceOption({
-              label: 'Totalmente satisfeito',
+              label: 'Totalmente insatisfeito',
             }),
             new ChoiceOption({
-              label: 'Pouco satisfeito',
+              label: 'Pouco insatisfeito',
             }),
             new ChoiceOption({
               label: 'Neutro'
             }),
             new ChoiceOption({
-              label: 'Pouco insatisfeito'
+              label: 'Pouco satisfeito'
             }),
             new ChoiceOption({
-              label: 'Totalmente insatisfeito'
+              label: 'Totalmente satisfeito'
+            })
+          ]
+        }),
+
+        new QuestionModel({
+          id: 'comunicacao',
+          tagline: 'COMUNICAÇÃO INTERNA.',
+          title: 'Qual o seu nivel de satisfação?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Totalmente insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Pouco insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Neutro'
+            }),
+            new ChoiceOption({
+              label: 'Pouco satisfeito'
+            }),
+            new ChoiceOption({
+              label: 'Totalmente satisfeito'
+            })
+          ]
+        }),
+
+        new QuestionModel({
+          id: 'gestao-equipe',
+          tagline: 'GESTÃO DA EQUIPE.',
+          title: 'Qual o seu nivel de satisfação?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Totalmente insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Pouco insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Neutro'
+            }),
+            new ChoiceOption({
+              label: 'Pouco satisfeito'
+            }),
+            new ChoiceOption({
+              label: 'Totalmente satisfeito'
+            })
+          ]
+        }),
+
+        new QuestionModel({
+          id: 'usuario',
+          tagline: 'INTERAÇÃO COM USUÁRIO.',
+          title: 'Qual o seu nivel de satisfação?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Totalmente insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Pouco insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Neutro'
+            }),
+            new ChoiceOption({
+              label: 'Pouco satisfeito'
+            }),
+            new ChoiceOption({
+              label: 'Totalmente satisfeito'
+            })
+          ]
+        }),
+
+        new QuestionModel({
+          id: 'novos-usuario',
+          tagline: 'INTERAÇÃO COM NOVO USUÁRIO.',
+          title: 'Qual o seu nivel de satisfação?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Totalmente insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Pouco insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Neutro'
+            }),
+            new ChoiceOption({
+              label: 'Pouco satisfeito'
+            }),
+            new ChoiceOption({
+              label: 'Totalmente satisfeito'
+            })
+          ]
+        }),
+
+        new QuestionModel({
+          id: 'organizacao',
+          tagline: 'ORGANIZAÇÃO GERAL.',
+          title: 'Qual o seu nivel de satisfação?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Totalmente insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Pouco insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Neutro'
+            }),
+            new ChoiceOption({
+              label: 'Pouco satisfeito'
+            }),
+            new ChoiceOption({
+              label: 'Totalmente satisfeito'
+            })
+          ]
+        }),
+
+        new QuestionModel({
+          id: 'gerenciador',
+          tagline: 'GERENCIADORES DE PROCESSOS (Runrun it, Trello, etc).',
+          title: 'Qual o seu nivel de satisfação?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Totalmente insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Pouco insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Neutro'
+            }),
+            new ChoiceOption({
+              label: 'Pouco satisfeito'
+            }),
+            new ChoiceOption({
+              label: 'Totalmente satisfeito'
+            })
+          ]
+        }),
+
+        new QuestionModel({
+          id: 'demandas',
+          tagline: 'CRIAÇÃO E APLICAÇÃO DE DEMANDAS.',
+          title: 'Qual o seu nivel de satisfação?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Totalmente insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Pouco insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Neutro'
+            }),
+            new ChoiceOption({
+              label: 'Pouco satisfeito'
+            }),
+            new ChoiceOption({
+              label: 'Totalmente satisfeito'
+            })
+          ]
+        }),
+        
+        new QuestionModel({
+          id: 'equipe',
+          tagline: 'GESTÃO FINANCEIRA.',
+          title: 'Qual o seu nivel de satisfação?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Totalmente insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Pouco insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Neutro'
+            }),
+            new ChoiceOption({
+              label: 'Pouco satisfeito'
+            }),
+            new ChoiceOption({
+              label: 'Totalmente satisfeito'
+            })
+          ]
+        }),
+
+        new QuestionModel({
+          id: 'acessibilidade',
+          tagline: 'ACESSIBILIDADE.',
+          title: 'Qual o seu nivel de satisfação?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Totalmente insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Pouco insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Neutro'
+            }),
+            new ChoiceOption({
+              label: 'Pouco satisfeito'
+            }),
+            new ChoiceOption({
+              label: 'Totalmente satisfeito'
+            })
+          ]
+        }),
+
+        new QuestionModel({
+          id: 'conexao',
+          tagline: 'CONEXÃO DO CLIENTE COM PRODUTO/SERVIÇO.',
+          title: 'Qual o seu nivel de satisfação?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Totalmente insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Pouco insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Neutro'
+            }),
+            new ChoiceOption({
+              label: 'Pouco satisfeito'
+            }),
+            new ChoiceOption({
+              label: 'Totalmente satisfeito'
+            })
+          ]
+        }),
+
+        new QuestionModel({
+          id: 'conversao',
+          tagline: 'CONVERSÃO DE ACESSOS EM VENDAS.',
+          title: 'Qual o seu nivel de satisfação?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Totalmente insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Pouco insatisfeito',
+            }),
+            new ChoiceOption({
+              label: 'Neutro'
+            }),
+            new ChoiceOption({
+              label: 'Pouco satisfeito'
+            }),
+            new ChoiceOption({
+              label: 'Totalmente satisfeito'
+            })
+          ]
+        }),
+         new QuestionModel({
+          id: 'dores',
+          tagline: 'SUAS DORES',
+          title: 'O que mais te incomoda hoje?',
+          helpTextShow: true,
+          type: QuestionType.MultipleChoice,
+          multiple: true,
+          allowOther: true,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Atraso nos prazos',
+            }),
+            new ChoiceOption({
+              label: 'Falha de comunicação interna',
+            }),
+            new ChoiceOption({
+              label: 'Gestão da equipe'
+            }),
+            new ChoiceOption({
+              label: 'Interação com usuário'
+            }),
+            new ChoiceOption({
+              label: 'Desorganização interna'
+            }),
+            new ChoiceOption({
+              label: 'Processos cansativos'
+            }),
+            new ChoiceOption({
+              label: 'Gestão financeira defeituosa'
+            }),
+            new ChoiceOption({
+              label: 'Protocolos de demanda mal definidos'
+            }),
+            new ChoiceOption({
+              label: 'Acessibilidade falha ou nula'
+            }),
+            new ChoiceOption({
+              label: 'Não sei o que meu cliente acha do meu produto'
+            }),
+            new ChoiceOption({
+              label: 'Dificuldade em converter acessos em vendas'
             })
           ]
         }),
@@ -368,6 +737,7 @@ export default {
 </script>
 
 <style lang="css">
+/* @import '../../assets/css/themes/theme-minimal.css'; */
 @import '../../assets/css/themes/theme-minimal.css';
 /* If using the npm package, use the following lines instead of the one above */
 /* @import '~@ditdot-dev/vue-flow-form/dist/vue-flow-form.css'; */

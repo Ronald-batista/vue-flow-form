@@ -463,6 +463,7 @@ header.vff-header svg.f-logo {
 
 .vff div.field-sectionbreak .f-answer {
   margin-top: 18px;
+  line-height: 25px;
 }
 
 .vff span.f-empty {

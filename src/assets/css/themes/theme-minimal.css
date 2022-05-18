@@ -260,16 +260,16 @@ header.vff-header svg.f-logo {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --vff-bg-color: #313640;
+    --vff-bg-color: #1e1e1e;
     --vff-main-text-color: #fff;
-    --vff-secondary-text-color: #AEB6BF;
-    --vff-tertiary-text-color: #41464F;
-    --vff-main-accent-color: #41B883;
+    --vff-secondary-text-color: #ffffff;
+    --vff-tertiary-text-color: #1e1e1e;
+    --vff-main-accent-color: #68cdfe;
     --vff-secondary-accent-color: #A0DBC1;
   }
 
   header.vff-header {
-    background-color: #313640;
+    background-color: #1e1e1e;
   }
 
   header.vff-header svg.f-logo {
@@ -335,6 +335,7 @@ header.vff-header svg.f-logo {
   .vff ul.f-radios li {
     font-weight: 900;
     color: var(--vff-secondary-text-color);
+    letter-spacing: 0.5px;
   }
 
   .vff .f-key {
