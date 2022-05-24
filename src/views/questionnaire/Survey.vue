@@ -699,17 +699,16 @@ export default {
 
       /* eslint-disable-next-line no-unused-vars */
       const data = this.getData()
-      /*
-        You can use Fetch API to send the data to your server, eg.:
 
-        fetch(url, {
+     // console.log(data);
+     
+     fetch("http://localhost:21262/new-record", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(data)
         })
-      */
     },
 
     getData() {
