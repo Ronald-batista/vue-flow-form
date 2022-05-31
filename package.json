@@ -1,6 +1,6 @@
 {
-  "name": "@ditdot-dev/vue-flow-form",
-  "author": "DITDOT",
+  "name": "@Ronald-batista/vue-flow-form",
+  "author": "EASYEASY",
   "description": "Create conversational conditional-logic forms with Vue.js.",
   "version": "2.2.1",
   "private": false,
@@ -60,7 +60,7 @@
   "bugs": {
     "url": "https://github.com/ditdot-dev/vue-flow-form/issues"
   },
-  "homepage": "https://www.ditdot.hr/en/vue-flow-form",
+  "homepage": "https://ronald-batista.github.io/vue-flow-form/",
   "jsdelivr": "dist/vue-flow-form.umd.min.js",
   "keywords": [
     "vue",
@@ -78,6 +78,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ditdot-dev/vue-flow-form.git"
+    "url": "https://github.com/Ronald-batista/vue-flow-form.git"
   }
 }

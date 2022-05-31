@@ -4,7 +4,9 @@ if (entry && entry.indexOf('.js') === -1) {
 }
 
 module.exports = {
-  publicPath: '',
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/vue-flow-form/'
+    : '/',
   pages: {
     index: {
       // Replace with your .js entry file path. 
